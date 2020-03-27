@@ -30,42 +30,22 @@
             /* Listen for click on map to create a marker */
             google.maps.event.addListener(map, 'click',
                 function (event) {
-                    var myLatLng = event.latLng;
-                    var lat = myLatLng.lat();
-                    var lng = myLatLng.lng();
+                    var lat = event.latLng.lat();
+                    var lng = event.latLng.lng();
                     addMarker({lat, lng})
                 });
 
-     /* Creating beachflag marker */
-            var position = { lat: 59.353810, lng: 18.088570 };
-            map:map
-            var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-            //var beachMarker = new google.maps.Marker({ position, map, icon: image });
-
-            var content = '<h1>Annas crib</h1>'
-            //var infoWindow = new google.maps.InfoWindow({
-            //    content: '<h1>Annas crib</h1>'
-            //});
-
-            //beachMarker.addListener('click', function(){
-            //    infoWindow.open(map, beachMarker);
-            //});
-
-            //addMarker({ lat: 59.353810, lng: 18.088570 });
-            //addMarker({ lat: 62, lng: 10 });
-
+         /* Locations */
+         /* Annas crib = { lat: 59.353810, lng: 18.088570 }; */
             
-
+    
+        /* Adding beachflag marker */
             function addMarker(position) {
-                //position: position
                 map: map
                 var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-                //content: props.content
-                content: content
+                var content = '<h1>Annas crib</h1>';
                 var beachMarker = new google.maps.Marker({ position, map, icon: image });
-                var infoWindow = new google.maps.InfoWindow({
-                    content
-                });
+                var infoWindow = new google.maps.InfoWindow({ content });
 
                 beachMarker.addListener('click', function () {
                     infoWindow.open(map, beachMarker);
@@ -75,8 +55,6 @@
                 if (props.icon) {
                     marker.setimage(props.icon)
                 };
-
-
            
             }
         }
