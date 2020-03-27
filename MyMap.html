@@ -30,11 +30,13 @@
             /* Listen for click on map to create a marker */
             google.maps.event.addListener(map, 'click',
                 function (event) {
-                    addMarker({coords: event.latlLng});
+                    var myLatLng = event.latLng;
+                    var lat = myLatLng.lat();
+                    var lng = myLatLng.lng();
+                    addMarker({lat, lng})
                 });
-  
 
-        /* Creating beachflag marker */
+     /* Creating beachflag marker */
             var position = { lat: 59.353810, lng: 18.088570 };
             map:map
             var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
@@ -54,12 +56,12 @@
 
             
 
-            function addMarker(props) {
-                position: props.coord
+            function addMarker(position) {
+                //position: position
                 map: map
                 var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-                content: props.content
-
+                //content: props.content
+                content: content
                 var beachMarker = new google.maps.Marker({ position, map, icon: image });
                 var infoWindow = new google.maps.InfoWindow({
                     content
